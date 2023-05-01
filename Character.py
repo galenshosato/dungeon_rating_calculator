@@ -237,10 +237,3 @@ class Character:
         return  self.RLP_f, self.RLP_t
     
 
-
-
-if __name__ == '__main__':
-    max = Character('lilmadman', 'dalaran')
-    max.get_char_object()
-    max.set_COS_scores()
-    print(max.COS_t)
