@@ -37,6 +37,17 @@ df = pd.DataFrame(data, index=index)
 workbook=Workbook()
 
 worksheet = workbook.active
+worksheet.column_dimensions['A'].width = 30
+worksheet.column_dimensions['D'].width = 25
+
+worksheet['A4'] = char.name
+
+timezone = 'US/Eastern'  # change this to your local timezone
+worksheet['D4'] = pd.Timestamp.now(tz=timezone).strftime('%m/%d/%Y %I:%M %p')
+
+
+worksheet.append([])
+worksheet.append([])
 
 for r in dataframe_to_rows(df, index=True, header=True):
     worksheet.append(r)
