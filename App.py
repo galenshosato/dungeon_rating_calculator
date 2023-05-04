@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 from Character import Character
+import shutil
+from openpyxl import Workbook
+from openpyxl.utils.dataframe import dataframe_to_rows
 
 char = Character('lilmadman', 'dalaran')
 
@@ -31,6 +34,13 @@ data = {'Key_f': col1, 'Score_f': col2, ' ': col3, 'Key_t': col4, 'Score_t': col
 
 df = pd.DataFrame(data, index=index)
 
-df.to_excel('output.xlsx')
+workbook=Workbook()
 
+worksheet = workbook.active
 
+for r in dataframe_to_rows(df, index=True, header=True):
+    worksheet.append(r)
+
+workbook.save('dungeon.xlsx')
+
+shutil.copy2('dungeon.xlsx', '/mnt/c/Users/galen/Desktop/dungeon.xlsx')
