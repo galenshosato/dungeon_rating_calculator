@@ -3,6 +3,7 @@ import numpy as np
 from Character import Character
 import shutil
 from openpyxl import Workbook
+from openpyxl.styles import Font
 from openpyxl.utils.dataframe import dataframe_to_rows
 
 char = Character('lilmadman', 'dalaran')
@@ -33,14 +34,17 @@ col5 = [score[1] for score in tyr]
 data = {'Key_f': col1, 'Score_f': col2, ' ': col3, 'Key_t': col4, 'Score_t': col5}
 
 df = pd.DataFrame(data, index=index)
+fort_smallest = df['Score_f'].nsmallest(3)
+tyr_smallest = df['Score_t'].nsmallest(3)
+fort_need = pd.DataFrame({'Fortified Need': fort_smallest.index, ' ': np.nan, '  ': np.nan, 'Tyrannical Need': tyr_smallest.index})
 
 workbook=Workbook()
 
 worksheet = workbook.active
 worksheet.column_dimensions['A'].width = 30
-worksheet.column_dimensions['D'].width = 25
+worksheet.column_dimensions['D'].width = 30
 
-worksheet['A4'] = char.name
+worksheet['A4'] = char.name +' '+' '+' '+str(char.current_score)
 
 timezone = 'US/Eastern'  # change this to your local timezone
 worksheet['D4'] = pd.Timestamp.now(tz=timezone).strftime('%m/%d/%Y %I:%M %p')
@@ -51,6 +55,14 @@ worksheet.append([])
 
 for r in dataframe_to_rows(df, index=True, header=True):
     worksheet.append(r)
+
+worksheet.append([])
+
+for s in dataframe_to_rows(fort_need, index=False, header=True):
+    worksheet.append(s)
+
+for cell in worksheet[18]:
+    cell.font = Font(bold=True)
 
 workbook.save('dungeon.xlsx')
 
