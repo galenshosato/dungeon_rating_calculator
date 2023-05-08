@@ -8,22 +8,22 @@ class Character:
         self.realm = realm
         self.char_object = None
         self.current_score = None
-        self.COS_f = []
-        self.COS_t = []
-        self.SBG_f = []
-        self.SBG_t = []
-        self.HOV_f = []
-        self.HOV_t = []
-        self.TJS_f = []
-        self.TJS_t = []
-        self.AV_f = []
-        self.AV_t = []
-        self.AA_f = []
-        self.AA_t = []
-        self.NO_f = []
-        self.NO_t = []
-        self.RLP_f = []
-        self.RLP_t = []
+        self.BH_f = []
+        self.BH_t = []
+        self.HOI_f = []
+        self.HOI_t = []
+        self.NELT_f = []
+        self.NELT_t = []
+        self.ULD_f = []
+        self.ULD_t = []
+        self.FH_f = []
+        self.FH_t = []
+        self.NL_f = []
+        self.NL_t = []
+        self.UNDR_f = []
+        self.UNDR_t = []
+        self.VP_f = []
+        self.VP_t = []
 
     def get_char_object(self):
         score_response = requests.get('http://localhost:3000/test')
@@ -36,204 +36,204 @@ class Character:
         self.current_score = current_score
         return self.current_score
     
-    def set_COS_scores(self):
+    def set_BH_scores(self):
         for d in self.char_object['mythic_plus_best_runs']:
-            if d["short_name"] == "COS":
+            if d["short_name"] == "BH":
                 affixes = d["affixes"]
                 dungeon_score = d['score']
                 best_level= d["mythic_level"]
                 if affixes[0]['name'] == "Fortified":
-                    self.COS_f.append(best_level)
-                    self.COS_f.append(dungeon_score)
+                    self.BH_f.append(best_level)
+                    self.BH_f.append(dungeon_score)
                 else:
-                    self.COS_t.append(best_level)
-                    self.COS_t.append(dungeon_score)
+                    self.BH_t.append(best_level)
+                    self.BH_t.append(dungeon_score)
         for alt in self.char_object['mythic_plus_alternate_runs']:
-            if alt["short_name"] == "COS":
+            if alt["short_name"] == "BH":
                 alt_affixes = alt["affixes"]
                 alt_dungeon_score = alt["score"]
                 alt_level = alt["mythic_level"]
                 if alt_affixes[0]['name'] == "Fortified":
-                    self.COS_f.append(alt_level)
-                    self.COS_f.append(alt_dungeon_score)
+                    self.BH_f.append(alt_level)
+                    self.BH_f.append(alt_dungeon_score)
                 else:
-                    self.COS_t.append(alt_level)
-                    self.COS_t.append(alt_dungeon_score)
-        return  self.COS_f, self.COS_t
+                    self.BH_t.append(alt_level)
+                    self.BH_t.append(alt_dungeon_score)
+        return  self.BH_f, self.BH_t
     
-    def set_SBG_scores(self):
+    def set_HOI_scores(self):
         for d in self.char_object['mythic_plus_best_runs']:
-            if d["short_name"] == "SBG":
+            if d["short_name"] == "HOI":
                 affixes = d["affixes"]
                 dungeon_score = d['score']
                 best_level=d["mythic_level"]
                 if affixes[0]['name'] == "Fortified":
-                    self.SBG_f.append(best_level)
-                    self.SBG_f.append(dungeon_score)
+                    self.HOI_f.append(best_level)
+                    self.HOI_f.append(dungeon_score)
                 else:
-                    self.SBG_t.append(best_level)
-                    self.SBG_t.append(dungeon_score)
+                    self.HOI_t.append(best_level)
+                    self.HOI_t.append(dungeon_score)
         for alt in self.char_object['mythic_plus_alternate_runs']:
-            if alt["short_name"] == "SBG":
+            if alt["short_name"] == "HOI":
                 alt_affixes = alt["affixes"]
                 alt_dungeon_score = alt["score"]
                 alt_level = alt["mythic_level"]
                 if alt_affixes[0]['name'] == "Fortified":
-                    self.SBG_f.append(alt_level)
-                    self.SBG_f.append(alt_dungeon_score)
+                    self.HOI_f.append(alt_level)
+                    self.HOI_f.append(alt_dungeon_score)
                 else:
-                    self.SBG_t.append(alt_level)
-                    self.SBG_t.append(alt_dungeon_score)
-        return  self.SBG_f, self.SBG_t
+                    self.HOI_t.append(alt_level)
+                    self.HOI_t.append(alt_dungeon_score)
+        return  self.HOI_f, self.HOI_t
     
-    def set_HOV_scores(self):
+    def set_NELT_scores(self):
         for d in self.char_object['mythic_plus_best_runs']:
-            if d["short_name"] == "HOV":
+            if d["short_name"] == "NELT":
                 affixes = d["affixes"]
                 dungeon_score = d['score']
                 best_level=d["mythic_level"]
                 if affixes[0]['name'] == "Fortified":
-                    self.HOV_f.append(best_level)
-                    self.HOV_f.append(dungeon_score)
+                    self.NELT_f.append(best_level)
+                    self.NELT_f.append(dungeon_score)
                 else:
-                    self.HOV_t.append(best_level)
-                    self.HOV_t.append(dungeon_score)
+                    self.NELT_t.append(best_level)
+                    self.NELT_t.append(dungeon_score)
         for alt in self.char_object['mythic_plus_alternate_runs']:
-            if alt["short_name"] == "HOV":
+            if alt["short_name"] == "NELT":
                 alt_affixes = alt["affixes"]
                 alt_dungeon_score = alt["score"]
                 alt_level = alt["mythic_level"]
                 if alt_affixes[0]['name'] == "Fortified":
-                    self.HOV_f.append(alt_level)
-                    self.HOV_f.append(alt_dungeon_score)
+                    self.NELT_f.append(alt_level)
+                    self.NELT_f.append(alt_dungeon_score)
                 else:
-                    self.HOV_t.append(alt_level)
-                    self.HOV_t.append(alt_dungeon_score)
-        return  self.HOV_f, self.HOV_t
+                    self.NELT_t.append(alt_level)
+                    self.NELT_t.append(alt_dungeon_score)
+        return  self.NELT_f, self.NELT_t
     
-    def set_TJS_scores(self):
+    def set_ULD_scores(self):
         for d in self.char_object['mythic_plus_best_runs']:
-            if d["short_name"] == "TJS":
+            if d["short_name"] == "ULD":
                 affixes = d["affixes"]
                 dungeon_score = d['score']
                 best_level=d["mythic_level"]
                 if affixes[0]['name'] == "Fortified":
-                    self.TJS_f.append(best_level)
-                    self.TJS_f.append(dungeon_score)
+                    self.ULD_f.append(best_level)
+                    self.ULD_f.append(dungeon_score)
                 else:
-                    self.TJS_t.append(best_level)
-                    self.TJS_t.append(dungeon_score)
+                    self.ULD_t.append(best_level)
+                    self.ULD_t.append(dungeon_score)
         for alt in self.char_object['mythic_plus_alternate_runs']:
-            if alt["short_name"] == "TJS":
+            if alt["short_name"] == "ULD":
                 alt_affixes = alt["affixes"]
                 alt_dungeon_score = alt["score"]
                 alt_level = alt["mythic_level"]
                 if alt_affixes[0]['name'] == "Fortified":
-                    self.TJS_f.append(alt_level)
-                    self.TJS_f.append(alt_dungeon_score)
+                    self.ULD_f.append(alt_level)
+                    self.ULD_f.append(alt_dungeon_score)
                 else:
-                    self.TJS_t.append(alt_level)
-                    self.TJS_t.append(alt_dungeon_score)
-        return  self.TJS_f, self.TJS_t
+                    self.ULD_t.append(alt_level)
+                    self.ULD_t.append(alt_dungeon_score)
+        return  self.ULD_f, self.ULD_t
     
-    def set_AV_scores(self):
+    def set_FH_scores(self):
         for d in self.char_object['mythic_plus_best_runs']:
-            if d["short_name"] == "AV":
+            if d["short_name"] == "FH":
                 affixes = d["affixes"]
                 dungeon_score = d['score']
                 best_level=d["mythic_level"]
                 if affixes[0]['name'] == "Fortified":
-                    self.AV_f.append(best_level)
-                    self.AV_f.append(dungeon_score)
+                    self.FH_f.append(best_level)
+                    self.FH_f.append(dungeon_score)
                 else:
-                    self.AV_t.append(best_level)
-                    self.AV_t.append(dungeon_score)
+                    self.FH_t.append(best_level)
+                    self.FH_t.append(dungeon_score)
         for alt in self.char_object['mythic_plus_alternate_runs']:
-            if alt["short_name"] == "AV":
+            if alt["short_name"] == "FH":
                 alt_affixes = alt["affixes"]
                 alt_dungeon_score = alt["score"]
                 alt_level = alt["mythic_level"]
                 if alt_affixes[0]['name'] == "Fortified":
-                    self.AV_f.append(alt_level)
-                    self.AV_f.append(alt_dungeon_score)
+                    self.FH_f.append(alt_level)
+                    self.FH_f.append(alt_dungeon_score)
                 else:
-                    self.AV_t.append(alt_level)
-                    self.AV_t.append(alt_dungeon_score)
-        return  self.AV_f, self.AV_t
+                    self.FH_t.append(alt_level)
+                    self.FH_t.append(alt_dungeon_score)
+        return  self.FH_f, self.FH_t
     
-    def set_AA_scores(self):
+    def set_NL_scores(self):
         for d in self.char_object['mythic_plus_best_runs']:
-            if d["short_name"] == "AA":
+            if d["short_name"] == "NL":
                 affixes = d["affixes"]
                 dungeon_score = d['score']
                 best_level=d["mythic_level"]
                 if affixes[0]['name'] == "Fortified":
-                    self.AA_f.append(best_level)
-                    self.AA_f.append(dungeon_score)
+                    self.NL_f.append(best_level)
+                    self.NL_f.append(dungeon_score)
                 else:
-                    self.AA_t.append(best_level)
-                    self.AA_t.append(dungeon_score)
+                    self.NL_t.append(best_level)
+                    self.NL_t.append(dungeon_score)
         for alt in self.char_object['mythic_plus_alternate_runs']:
-            if alt["short_name"] == "AA":
+            if alt["short_name"] == "NL":
                 alt_affixes = alt["affixes"]
                 alt_dungeon_score = alt["score"]
                 alt_level = alt["mythic_level"]
                 if alt_affixes[0]['name'] == "Fortified":
-                    self.AA_f.append(alt_level)
-                    self.AA_f.append(alt_dungeon_score)
+                    self.NL_f.append(alt_level)
+                    self.NL_f.append(alt_dungeon_score)
                 else:
-                    self.AA_t.append(alt_level)
-                    self.AA_t.append(alt_dungeon_score)
-        return  self.AA_f, self.AA_t
+                    self.NL_t.append(alt_level)
+                    self.NL_t.append(alt_dungeon_score)
+        return  self.NL_f, self.NL_t
     
-    def set_NO_scores(self):
+    def set_UNDR_scores(self):
         for d in self.char_object['mythic_plus_best_runs']:
-            if d["short_name"] == "NO":
+            if d["short_name"] == "UNDR":
                 affixes = d["affixes"]
                 dungeon_score = d['score']
                 best_level=d["mythic_level"]
                 if affixes[0]['name'] == "Fortified":
-                    self.NO_f.append(best_level)
-                    self.NO_f.append(dungeon_score)
+                    self.UNDR_f.append(best_level)
+                    self.UNDR_f.append(dungeon_score)
                 else:
-                    self.NO_t.append(best_level)
-                    self.NO_t.append(dungeon_score)
+                    self.UNDR_t.append(best_level)
+                    self.UNDR_t.append(dungeon_score)
         for alt in self.char_object['mythic_plus_alternate_runs']:
-            if alt["short_name"] == "NO":
+            if alt["short_name"] == "UNDR":
                 alt_affixes = alt["affixes"]
                 alt_dungeon_score = alt["score"]
                 alt_level = alt["mythic_level"]
                 if alt_affixes[0]['name'] == "Fortified":
-                    self.NO_f.append(alt_level)
-                    self.NO_f.append(alt_dungeon_score)
+                    self.UNDR_f.append(alt_level)
+                    self.UNDR_f.append(alt_dungeon_score)
                 else:
-                    self.NO_t.append(alt_level)
-                    self.NO_t.append(alt_dungeon_score)
-        return  self.NO_f, self.NO_t
+                    self.UNDR_t.append(alt_level)
+                    self.UNDR_t.append(alt_dungeon_score)
+        return  self.UNDR_f, self.UNDR_t
     
-    def set_RLP_scores(self):
+    def set_VP_scores(self):
         for d in self.char_object['mythic_plus_best_runs']:
-            if d["short_name"] == "RLP":
+            if d["short_name"] == "VP":
                 affixes = d["affixes"]
                 dungeon_score = d['score']
                 best_level=d["mythic_level"]
                 if affixes[0]['name'] == "Fortified":
-                    self.RLP_f.append(best_level)
-                    self.RLP_f.append(dungeon_score)
+                    self.VP_f.append(best_level)
+                    self.VP_f.append(dungeon_score)
                 else:
-                    self.RLP_t.append(best_level)
-                    self.RLP_t.append(dungeon_score)
+                    self.VP_t.append(best_level)
+                    self.VP_t.append(dungeon_score)
         for alt in self.char_object['mythic_plus_alternate_runs']:
-            if alt["short_name"] == "RLP":
+            if alt["short_name"] == "VP":
                 alt_affixes = alt["affixes"]
                 alt_dungeon_score = alt["score"]
                 alt_level = alt["mythic_level"]
                 if alt_affixes[0]['name'] == "Fortified":
-                    self.RLP_f.append(alt_level)
-                    self.RLP_f.append(alt_dungeon_score)
+                    self.VP_f.append(alt_level)
+                    self.VP_f.append(alt_dungeon_score)
                 else:
-                    self.RLP_t.append(alt_level)
-                    self.RLP_t.append(alt_dungeon_score)
-        return  self.RLP_f, self.RLP_t
+                    self.VP_t.append(alt_level)
+                    self.VP_t.append(alt_dungeon_score)
+        return  self.VP_f, self.VP_t
     
 

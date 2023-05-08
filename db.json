@@ -66,7 +66,7 @@
     "mythic_plus_best_runs": [
       {
         "dungeon": "Shadowmoon Burial Grounds",
-        "short_name": "SBG",
+        "short_name": "BH",
         "mythic_level": 20,
         "completed_at": "2023-04-10T02:40:51.000Z",
         "clear_time_ms": 1315418,
@@ -109,7 +109,7 @@
       },
       {
         "dungeon": "Halls of Valor",
-        "short_name": "HOV",
+        "short_name": "HOI",
         "mythic_level": 20,
         "completed_at": "2023-03-29T03:47:34.000Z",
         "clear_time_ms": 1812159,
@@ -152,7 +152,7 @@
       },
       {
         "dungeon": "Court of Stars",
-        "short_name": "COS",
+        "short_name": "NELT",
         "mythic_level": 20,
         "completed_at": "2023-03-24T02:35:00.000Z",
         "clear_time_ms": 1574664,
@@ -195,7 +195,7 @@
       },
       {
         "dungeon": "Temple of the Jade Serpent",
-        "short_name": "TJS",
+        "short_name": "ULD",
         "mythic_level": 20,
         "completed_at": "2023-03-25T05:01:40.000Z",
         "clear_time_ms": 1589861,
@@ -238,7 +238,7 @@
       },
       {
         "dungeon": "The Azure Vault",
-        "short_name": "AV",
+        "short_name": "FH",
         "mythic_level": 20,
         "completed_at": "2023-04-04T03:53:17.000Z",
         "clear_time_ms": 1932274,
@@ -281,7 +281,7 @@
       },
       {
         "dungeon": "Algeth'ar Academy",
-        "short_name": "AA",
+        "short_name": "NL",
         "mythic_level": 20,
         "completed_at": "2023-03-28T03:10:29.000Z",
         "clear_time_ms": 1772304,
@@ -324,7 +324,7 @@
       },
       {
         "dungeon": "The Nokhud Offensive",
-        "short_name": "NO",
+        "short_name": "UNDR",
         "mythic_level": 20,
         "completed_at": "2023-03-21T02:23:59.000Z",
         "clear_time_ms": 2245504,
@@ -367,7 +367,7 @@
       },
       {
         "dungeon": "Ruby Life Pools",
-        "short_name": "RLP",
+        "short_name": "VP",
         "mythic_level": 20,
         "completed_at": "2023-04-10T05:00:46.000Z",
         "clear_time_ms": 1696789,
@@ -412,7 +412,7 @@
     "mythic_plus_alternate_runs": [
       {
         "dungeon": "Shadowmoon Burial Grounds",
-        "short_name": "SBG",
+        "short_name": "BH",
         "mythic_level": 20,
         "completed_at": "2023-04-04T01:38:06.000Z",
         "clear_time_ms": 1406692,
@@ -455,7 +455,7 @@
       },
       {
         "dungeon": "The Nokhud Offensive",
-        "short_name": "NO",
+        "short_name": "UNDR",
         "mythic_level": 20,
         "completed_at": "2023-04-11T03:58:51.000Z",
         "clear_time_ms": 2267321,
@@ -498,7 +498,7 @@
       },
       {
         "dungeon": "Court of Stars",
-        "short_name": "COS",
+        "short_name": "NELT",
         "mythic_level": 19,
         "completed_at": "2023-04-01T00:28:17.000Z",
         "clear_time_ms": 1506149,
@@ -541,7 +541,7 @@
       },
       {
         "dungeon": "Algeth'ar Academy",
-        "short_name": "AA",
+        "short_name": "NL",
         "mythic_level": 20,
         "completed_at": "2023-04-26T02:00:23.000Z",
         "clear_time_ms": 2013085,
@@ -584,7 +584,7 @@
       },
       {
         "dungeon": "The Azure Vault",
-        "short_name": "AV",
+        "short_name": "FH",
         "mythic_level": 20,
         "completed_at": "2023-04-10T04:26:50.000Z",
         "clear_time_ms": 2258503,
@@ -627,7 +627,7 @@
       },
       {
         "dungeon": "Halls of Valor",
-        "short_name": "HOV",
+        "short_name": "HOI",
         "mythic_level": 20,
         "completed_at": "2023-03-28T01:58:48.000Z",
         "clear_time_ms": 2627175,
@@ -670,7 +670,7 @@
       },
       {
         "dungeon": "Temple of the Jade Serpent",
-        "short_name": "TJS",
+        "short_name": "ULD",
         "mythic_level": 20,
         "completed_at": "2023-04-04T02:23:24.000Z",
         "clear_time_ms": 2510676,
@@ -713,7 +713,7 @@
       },
       {
         "dungeon": "Ruby Life Pools",
-        "short_name": "RLP",
+        "short_name": "VP",
         "mythic_level": 18,
         "completed_at": "2023-03-15T01:25:11.000Z",
         "clear_time_ms": 1897356,

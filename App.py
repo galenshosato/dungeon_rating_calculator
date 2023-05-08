@@ -42,20 +42,20 @@ char = Character('lilmadman', 'dalaran')
 
 char.get_char_object()
 char.set_current_score()
-char.set_COS_scores()
-char.set_HOV_scores()
-char.set_TJS_scores()
-char.set_SBG_scores()
-char.set_RLP_scores()
-char.set_AA_scores()
-char.set_AV_scores()
-char.set_NO_scores()
+char.set_BH_scores()
+char.set_HOI_scores()
+char.set_NELT_scores()
+char.set_ULD_scores()
+char.set_FH_scores()
+char.set_NL_scores()
+char.set_UNDR_scores()
+char.set_VP_scores()
 
-fort = [char.COS_f, char.HOV_f, char.TJS_f, char.SBG_f, char.RLP_f, char.AA_f, char.AV_f, char.NO_f]
-tyr = [char.COS_t, char.HOV_t, char.TJS_t, char.SBG_t, char.RLP_t, char.AA_t, char.AV_t, char.NO_t]
+fort = [char.BH_f, char.HOI_f, char.NELT_f, char.ULD_f, char.FH_f, char.NL_f, char.UNDR_f, char.VP_f]
+tyr = [char.BH_t, char.HOI_t, char.NELT_t, char.ULD_t, char.FH_t, char.NL_t, char.UNDR_t, char.VP_t]
 
-index = ['Court of Stars', 'Halls of Valor', 'Temple of the Jade Serpent', 'Shadowmoon Burial Ground',
-         'Ruby Life Pools', 'Alegthar Academy', 'Azure Vault', 'Nokund Offensive']
+index = ['Brackenhide Hold', 'Halls of Infusion', 'Neltharus', 'Uldaman: Legacy of Tyr',
+         'Freehold', 'Neltharion\'s Lair', 'The Underrot', 'The Vortex Pinnacle']
 
 col1= [key[0] for key in fort]
 col2 = [score[1] for score in fort]
