@@ -6,6 +6,38 @@ from openpyxl import Workbook
 from openpyxl.styles import Font
 from openpyxl.utils.dataframe import dataframe_to_rows
 
+scores = {
+    '+2': 40,
+    '+3': 45,
+    '+4': 55,
+    '+5': 60,
+    '+6': 65,
+    '+7': 75,
+    '+8': 80,
+    '+9': 85,
+    '+10': 100,
+    '+11': 107,
+    '+12': 114,
+    '+13': 121,
+    '+14': 128,
+    '+15': 135,
+    '+16': 142,
+    '+17': 149,
+    '+18': 156,
+    '+19': 163,
+    '+20': 170,
+    '+21': 177,
+    '+22': 184,
+    '+23': 191,
+    '+24': 198,
+    '+25': 205,
+    '+26': 212,
+    '+27': 219,
+    '+28': 226,
+    '+29': 233,
+    '+30': 240 
+}
+
 char = Character('lilmadman', 'dalaran')
 
 char.get_char_object()
