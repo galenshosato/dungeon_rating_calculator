@@ -1,4 +1,4 @@
-from Character import Character
+
 import math
 
 scores = {
@@ -66,17 +66,17 @@ def assign_t_dict(index, tyr_array):
         t_dict[index[i]] = tyr_array[i]
     return t_dict
 
-#Returns the dungeon and key needed to hit a goal for fortified
-def score_calculator_one_f(char, f_dict):
+#Returns the dungeon and key needed to hit a target score
+def score_calculator_one(char, dict):
     one_score_dict={}
     if char.current_score < 750:
         diff = score_difference(750, char.current_score)
         index = None
         m_key = 35
-        for test_key in f_dict:
-            score_comp = f_dict[test_key][1]
+        for test_key in dict:
+            score_comp = dict[test_key][1]
             new_key = one_key(diff, score_comp, scores)
-            if new_key is not int:
+            if not isinstance(new_key, int) :
                 return new_key
             elif new_key < m_key:
                 m_key = new_key
@@ -84,14 +84,14 @@ def score_calculator_one_f(char, f_dict):
         one_score_dict[index] = m_key
         return one_score_dict
 
-    elif 751 <= char.current_score < 1500:
+    elif 750 <= char.current_score < 1500:
         diff = score_difference(1500, char.current_score)
         index = None
         m_key = 35
-        for test_key in f_dict:
-            score_comp = f_dict[test_key][1]
+        for test_key in dict:
+            score_comp = dict[test_key][1]
             new_key = one_key(diff, score_comp, scores)
-            if new_key is not int:
+            if not isinstance(new_key, int) :
                 return new_key
             elif new_key < m_key:
                 m_key = new_key
@@ -99,29 +99,29 @@ def score_calculator_one_f(char, f_dict):
         one_score_dict[index] = m_key
         return one_score_dict
 
-    elif 1501 <= char.current_score < 2000:
+    elif 1500 <= char.current_score < 2000:
         diff = score_difference(2000, char.current_score)
         index = None
-        key = 35
-        for test_key in f_dict:
-            score_comp = f_dict[key][1]
+        m_key = 35
+        for test_key in dict:
+            score_comp = dict[test_key][1]
             new_key = one_key(diff, score_comp, scores)
-            if new_key is not int:
+            if not isinstance(new_key, int) :
                 return new_key
             elif new_key < m_key:
-                key = new_key
+                m_key = new_key
                 index = test_key
-        one_score_dict[index] = key
+        one_score_dict[index] = m_key
         return one_score_dict
 
-    elif 2001 <= char.current_score < 2500:
+    elif 2000 <= char.current_score < 2500:
         diff = score_difference(2500, char.current_score)
         index = None
         m_key = 35
-        for test_key in f_dict:
-            score_comp = f_dict[test_key][1]
+        for test_key in dict:
+            score_comp = dict[test_key][1]
             new_key = one_key(diff, score_comp, scores)
-            if new_key is not int:
+            if not isinstance(new_key, int) :
                 return new_key
             elif new_key < m_key:
                 m_key = new_key
@@ -130,13 +130,13 @@ def score_calculator_one_f(char, f_dict):
         return one_score_dict
 
     else:
-        diff = score_difference(2750, char.current_score)
+        diff = score_difference(2800, char.current_score)
         index = None
         m_key = 35
-        for test_key in f_dict:
-            score_comp = f_dict[test_key][1]
+        for test_key in dict:
+            score_comp = dict[test_key][1]
             new_key = one_key(diff, score_comp, scores)
-            if new_key is not int:
+            if not isinstance(new_key, int) :
                 return new_key
             elif new_key < m_key:
                 m_key = new_key
@@ -145,84 +145,102 @@ def score_calculator_one_f(char, f_dict):
         return one_score_dict
 
 
-def score_calculator_three_f(char, f_dict):
+#Returns three dungeons that you need to hit a target score
+def score_calculator_three(char, dict):
     three_score_dict={}
+    used_keys = set()
     if char.current_score < 750:
         diff = math.ceil((score_difference(750, char.current_score)) / 3)
         while len(three_score_dict) < 3:
             index = None
-            m_key = 35
-            for test_key in f_dict:
-                score_comp = f_dict[test_key][1]
-                new_key = one_key(diff, score_comp, scores)
-                if new_key is not int:
-                    return new_key
-                elif new_key < m_key:
-                    m_key = new_key
-                    index = test_key
+            m_key = float('inf')
+            for test_key in dict:
+                    if test_key in used_keys:
+                        continue
+                    score_comp = dict[test_key][1]
+                    new_key = one_key(diff, score_comp, scores)
+                    if not isinstance(new_key, int) :
+                        return new_key
+                    elif new_key < m_key:
+                        m_key = new_key
+                        index = test_key
             three_score_dict[index] = m_key
+            used_keys.add(index)
         return three_score_dict
 
-    elif 751 <= char.current_score < 1500:
-        diff = score_difference(1500, char.current_score)
-        index = None
-        m_key = 35
-        for test_key in f_dict:
-            score_comp = f_dict[test_key][1]
-            new_key = one_key(diff, score_comp, scores)
-            if new_key is not int:
-                return new_key
-            elif new_key < m_key:
-                m_key = new_key
-                index = test_key
-        one_score_dict[index] = m_key
-        return one_score_dict
+    elif 750 <= char.current_score < 1500:
+        diff = math.ceil((score_difference(1500, char.current_score)) / 3)
+        while len(three_score_dict) < 3:
+            index = None
+            m_key = float('inf')
+            for test_key in dict:
+                    if test_key in used_keys:
+                        continue
+                    score_comp = dict[test_key][1]
+                    new_key = one_key(diff, score_comp, scores)
+                    if not isinstance(new_key, int) :
+                        return new_key
+                    elif new_key < m_key:
+                        m_key = new_key
+                        index = test_key
+            three_score_dict[index] = m_key
+            used_keys.add(index)
+        return three_score_dict
 
-    elif 1501 <= char.current_score < 2000:
-        diff = score_difference(2000, char.current_score)
-        index = None
-        key = 35
-        for test_key in f_dict:
-            score_comp = f_dict[key][1]
-            new_key = one_key(diff, score_comp, scores)
-            if new_key is not int:
-                return new_key
-            elif new_key < m_key:
-                key = new_key
-                index = test_key
-        one_score_dict[index] = key
-        return one_score_dict
-
-    elif 2001 <= char.current_score < 2500:
-        diff = score_difference(2500, char.current_score)
-        index = None
-        m_key = 35
-        for test_key in f_dict:
-            score_comp = f_dict[test_key][1]
-            new_key = one_key(diff, score_comp, scores)
-            if new_key is not int:
-                return new_key
-            elif new_key < m_key:
-                m_key = new_key
-                index = test_key
-        one_score_dict[index] = m_key
-        return one_score_dict
-
+    elif 1500 <= char.current_score < 2000:
+        diff = math.ceil((score_difference(2000, char.current_score)) / 3)
+        while len(three_score_dict) < 3:
+            index = None
+            m_key = float('inf')
+            for test_key in dict:
+                    if test_key in used_keys:
+                        continue
+                    score_comp = dict[test_key][1]
+                    new_key = one_key(diff, score_comp, scores)
+                    if not isinstance(new_key, int) :
+                        return new_key
+                    elif new_key < m_key:
+                        m_key = new_key
+                        index = test_key
+            three_score_dict[index] = m_key
+            used_keys.add(index)
+        return three_score_dict
+    elif 2000 <= char.current_score < 2500:
+        diff = math.ceil((score_difference(2500, char.current_score)) / 3)
+        while len(three_score_dict) < 3:
+            index = None
+            m_key = float('inf')
+            for test_key in dict:
+                    if test_key in used_keys:
+                        continue
+                    score_comp = dict[test_key][1]
+                    new_key = one_key(diff, score_comp, scores)
+                    if not isinstance(new_key, int) :
+                        return new_key
+                    elif new_key < m_key:
+                        m_key = new_key
+                        index = test_key
+            three_score_dict[index] = m_key
+            used_keys.add(index)
+        return three_score_dict
     else:
-        diff = score_difference(2750, char.current_score)
-        index = None
-        m_key = 35
-        for test_key in f_dict:
-            score_comp = f_dict[test_key][1]
-            new_key = one_key(diff, score_comp, scores)
-            if new_key is not int:
-                return new_key
-            elif new_key < m_key:
-                m_key = new_key
-                index = test_key
-        one_score_dict[index] = m_key
-        return one_score_dict
-
+        diff = math.ceil((score_difference(2800, char.current_score)) / 3)
+        while len(three_score_dict) < 3:
+            index = None
+            m_key = float('inf')
+            for test_key in dict:
+                    if test_key in used_keys:
+                        continue
+                    score_comp = dict[test_key][1]
+                    new_key = one_key(diff, score_comp, scores)
+                    if not isinstance(new_key, int) :
+                        return new_key
+                    elif new_key < m_key:
+                        m_key = new_key
+                        index = test_key
+            three_score_dict[index] = m_key
+            used_keys.add(index)
+        return three_score_dict
 
 if __name__ == '__main__':
     char = Character('lilmadman', 'dalaran')
@@ -244,5 +262,8 @@ if __name__ == '__main__':
     index = ['Brackenhide Hold', 'Halls of Infusion', 'Neltharus', 'Uldaman: Legacy of Tyr',
             'Freehold', 'Neltharion\'s Lair', 'The Underrot', 'The Vortex Pinnacle']
 
+    
     f_dict = assign_f_dict(index, fort)
-    print(score_calculator_one_f(char, f_dict))
+    t_dict = assign_t_dict(index, tyr)
+    # print(score_calculator_one_f(char, f_dict))
+    print(score_calculator_three(char, t_dict))
