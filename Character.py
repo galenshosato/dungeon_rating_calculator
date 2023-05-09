@@ -27,6 +27,7 @@ class Character:
 
     def get_char_object(self):
         score_response = requests.get('http://localhost:3000/test')
+        # score_response = requests.get(f'https://raider.io/api/v1/characters/profile?region=us&realm={self.realm}&name={self.name}&fields=mythic_plus_scores_by_season%3Aprevious%2Cmythic_plus_best_runs%3Aall%2Cmythic_plus_alternate_runs%3Aall')
         char_object = json.loads(score_response.text)
         self.char_object = char_object
         return self.char_object
