@@ -39,7 +39,7 @@ scores = {
     '+30': 240 
 }
 
-char = Character('lilmadman', 'dalaran')
+char = Character('maddusmaxxus', 'dalaran')
 
 char.get_char_object()
 char.set_current_score()
@@ -96,17 +96,25 @@ if fort_one_dict == {"Too High Of Key" : "31 or higher"}:
 else:
     fort_one_display = [f"{k}({v})" for k,v in fort_one_dict.items()]
 fort_three_dict = score_calculator_three(char, f_dict)
-fort_three_display = [f"{k}({v})" for k,v in fort_three_dict.items()]
+if fort_three_dict == {"Too High Of Key" : "31 or higher"}:
+    fort_three_display = ['Continuing to gather data...', 'Continuing to gather data...', 'Continuing to gather data...']
+else:
+    fort_three_display = [f"{k}({v})" for k,v in fort_three_dict.items()]
 tyr_one_dict = score_calculator_one(char, t_dict)
 if tyr_one_dict == {"Too High Of Key" : "31 or higher"}:
     tyr_one_display = ['Too High of a Key, 31 or Higher']
 else:
     tyr_one_display = [f"{k}({v})" for k,v in tyr_one_dict.items()]
 tyr_three_dict = score_calculator_three(char, t_dict)
-tyr_three_display = [f"{k}({v})" for k,v in tyr_three_dict.items()]
+if tyr_three_dict == {"Too High Of Key" : "31 or higher"}:
+    tyr_three_display = ['Continuing to gather data...', 'Continuing to gather data...', 'Continuing to gather data...']
+else:
+    tyr_three_display = [f"{k}({v})" for k,v in tyr_three_dict.items()]
+
 
 one_need = pd.DataFrame({f'Single Dungeon to reach {goal} -Fort': fort_one_display, ' ': np.nan, '  ': np.nan, f'Single Dungeon to reach {goal} -Tyr': tyr_one_display})
 three_need = pd.DataFrame({f'Three Dungeons to reach {goal} -Fort': fort_three_display, ' ': np.nan, '  ': np.nan, f'Three Dungeons to reach {goal} -Tyr': tyr_three_display})
+
 
 
 

@@ -1,19 +1,20 @@
 
 import math
+from Character import Character
 
 scores = {
     '+2': 40,
     '+3': 45,
-    '+4': 55,
-    '+5': 60,
-    '+6': 65,
+    '+4': 50,
+    '+5': 55,
+    '+6': 60,
     '+7': 75,
     '+8': 80,
     '+9': 85,
-    '+10': 100,
-    '+11': 107,
-    '+12': 114,
-    '+13': 121,
+    '+10': 90,
+    '+11': 97,
+    '+12': 104,
+    '+13': 111,
     '+14': 128,
     '+15': 135,
     '+16': 142,
@@ -33,11 +34,12 @@ scores = {
     '+30': 240 
 }
 
+
 #This will give you the closest key for a given score
 def one_key(diff_score, usr_score, score_dict):
     new_diff = diff_score + usr_score
     if new_diff > 240:
-        return {"Too High Of Key" : "31 or higher"}
+        return int('+30')
     closest_score = None
     closest_distance = float('inf')
     for key in score_dict:
@@ -243,7 +245,7 @@ def score_calculator_three(char, dict):
         return three_score_dict
 
 if __name__ == '__main__':
-    char = Character('lilmadman', 'dalaran')
+    char = Character('maddusmaxxus', 'dalaran')
 
     char.get_char_object()
     char.set_current_score()
