@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import sys
 from Character import Character
 import shutil
 from openpyxl import Workbook
@@ -38,8 +39,9 @@ scores = {
     '+29': 233,
     '+30': 240 
 }
-
-char = Character('maddusmaxxus', 'dalaran')
+char_name = sys.argv[1]
+char_realm = sys.argv[2]
+char = Character(char_name, char_realm)
 
 char.get_char_object()
 char.set_current_score()
