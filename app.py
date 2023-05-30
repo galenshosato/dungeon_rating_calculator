@@ -70,8 +70,10 @@ elif 1500 <= char.current_score < 2000:
     goal = 2000
 elif 2000 <= char.current_score < 2500:
     goal = 2500
-else:
+elif 2500 <= char.current_score < 2800:
     goal = 2800
+else:
+    goal = 3000
 
 
 
